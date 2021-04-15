@@ -36,7 +36,7 @@ Não obrigatório. Faça apenas caso se identifique com o problema ou se achar q
 ***********************************************
  Descobrir a melhor volta da corrida
 ************************************************
- Calcular a velocidade média de cada piloto durante toda corridatlassian.com/x/4whODQ).
+ Calcular a velocidade média de cada piloto durante toda corrida.
 # Seja criativo
 Uma outra pessoa estará lendo o que você fez, portanto, lembre-se de buscar trazer a semântica do problema no seu código;
 
