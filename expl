@@ -1,0 +1,4 @@
+usuario entra com quantidade de piloto da corrida 
+na sequencia nome , id do piloto , voltas completas - passando tempo de prova e veocidade media 
+apos todas as informações do primeiro piloto , fornecer as mesmas informações do sucessor e assim por diante 
+

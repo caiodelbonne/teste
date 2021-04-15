@@ -1,5 +1,5 @@
 package app;
-
+// dev caio cesar del bonne
 import java.io.IOException;
 /*
  * Caio Cesar Del bonne
@@ -19,7 +19,9 @@ public class Program { // posicao de chegada
 		Scanner sc = new Scanner(System.in);
 		// lista de piloto
 		System.out.println("Quantidade de pilotos ?");
+
 		int N = sc.nextInt();
+
 		System.out.println("Quantidade de pilotos que ira participar da corrida: " + N);
 		List<Piloto> list = new ArrayList<Piloto>();
 
@@ -45,7 +47,7 @@ public class Program { // posicao de chegada
 			int velocidadeDaVolta;
 			int vm[] = new int[quantidadeDeVoltas];
 			double somavelocidade = 0;
-			for (int volta = 0; volta < quantidadeDeVoltas; volta++) {
+			for (int volta  =0 ; volta < quantidadeDeVoltas; volta++) {
 				System.out.println("Volta de numero : " + volta);
 				System.out.println("velocidade Maxima da volta " + volta);
 				vm[volta] = sc.nextInt();
@@ -55,7 +57,7 @@ public class Program { // posicao de chegada
 				somaTempo += tempoDaVolta;
 			}
 			double mediaVelocidade = (somavelocidade / quantidadeDeVoltas);
-			System.out.println("Tempo total :" + somaTempo + "velocidade media " + mediaVelocidade);
+			System.out.println("Tempo total : " + somaTempo + " velocidade media " + mediaVelocidade +" Km");
 
 			Piloto x = new Piloto(name, numeroPiloto, somaTempo, mediaVelocidade);
 			list.add(x);
@@ -66,9 +68,10 @@ public class Program { // posicao de chegada
 
 		for (Piloto piloto : list) {
 
-			System.out.println("Nome do piloto: " + piloto.getNome() + " Numero do piloto : " + piloto.getNumeroPiloto()
-					+ " tempo de corrida :" + piloto.getTempoDaProva() + " Velocidade media foi de: "
-					+ piloto.getMediaVelocidade());
+			System.out.println("Nome do piloto: " + piloto.getNome() + 
+					" Numero do piloto : " + piloto.getNumeroPiloto()
+					+ " tempo de corrida : " + piloto.getTempoDaProva() + 
+					" Velocidade media foi de: " + piloto.getMediaVelocidade());
 		}
 
 		System.out.println(list.get(0));
