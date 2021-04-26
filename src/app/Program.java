@@ -1,4 +1,7 @@
 package app;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 // dev caio cesar del bonne
 import java.io.IOException;
 /*
@@ -9,71 +12,44 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 import entity.Piloto;
 
 public class Program { // posicao de chegada
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		// lista de piloto
-		System.out.println("Quantidade de pilotos ?");
-
-		int N = sc.nextInt();
-
-		System.out.println("Quantidade de pilotos que ira participar da corrida: " + N);
+	public static void main(String[] args) throws IOException {
+		Locale.setDefault(new Locale("pt-BR"));
 		List<Piloto> list = new ArrayList<Piloto>();
+		String arquivoTxt = "C:\\Users\\caioc\\Desktop\\ninja_caiocesar-4-1\\ARQUIVO_ENTRADA.csv";
 
-		for (int i = 0; i < N; i++) {
-			System.out.println("Entre com Nome Piloto : " + i);
-			String name = sc.next();
-			System.out.println("Numero de Identificação do Piloto");
-			int numeroPiloto = sc.nextInt();
-			// vetor de voltas
-			System.out.println("Voltas Completas. . . ");
+		try {
+			BufferedReader leitorArquivo = new BufferedReader(new FileReader(arquivoTxt));
+			leitorArquivo.readLine();
+			String line = leitorArquivo.readLine();
 
-			int quantidadeDeVoltas = sc.nextInt();
-			if (quantidadeDeVoltas > 4) {
-				System.out.println("Quantidade de voltas maxima 4");
-				throw new ArithmeticException(
-						"quantidade de voltas nao pode ser maior que 4 \n" + "repita novamente! ");
-
+			while ((line = leitorArquivo.readLine()) != null) {
+				leitorArquivo.readLine();
+				String[] str_Array = line.split(";");
+				String hora = str_Array[0].trim();
+				String nomeEId = str_Array[1].trim();
+				int numeroVoltas = Integer.parseInt(str_Array[2].trim());
+				String tempoDeVolta = str_Array[3].trim();
+				// Double tempo = Double.parseDouble(tempoDeVolta)/60;
+				Double velocidadeMedia = Double.parseDouble(str_Array[4].trim()); // era String
+				Piloto pi = new Piloto(hora, nomeEId, numeroVoltas, tempoDeVolta, velocidadeMedia);
+				list.add(pi);
 			}
-			// aqui começa a nedia velocidade , velocidade em vetor
+			for (Piloto p : list) {
 
-			int voltas[] = new int[quantidadeDeVoltas];
-			int somaTempo = 0;
-			int velocidadeDaVolta;
-			int vm[] = new int[quantidadeDeVoltas];
-			double somavelocidade = 0;
-			for (int volta  =0 ; volta < quantidadeDeVoltas; volta++) {
-				System.out.println("Volta de numero : " + volta);
-				System.out.println("velocidade Maxima da volta " + volta);
-				vm[volta] = sc.nextInt();
-				somavelocidade += vm[volta];
-				System.out.println("Tempo da volta em segundos : ");
-				int tempoDaVolta = sc.nextInt();
-				somaTempo += tempoDaVolta;
+				System.out.println(p);
 			}
-			double mediaVelocidade = (somavelocidade / quantidadeDeVoltas);
-			System.out.println("Tempo total : " + somaTempo + " velocidade media " + mediaVelocidade +" Km");
 
-			Piloto x = new Piloto(name, numeroPiloto, somaTempo, mediaVelocidade);
-			list.add(x);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
-		list.sort(Comparator.comparing(Piloto::getTempoDaProva));
-		// lista de ordenação por tempo
-
-		for (Piloto piloto : list) {
-
-			System.out.println("Nome do piloto: " + piloto.getNome() + 
-					" Numero do piloto : " + piloto.getNumeroPiloto()
-					+ " tempo de corrida : " + piloto.getTempoDaProva() + 
-					" Velocidade media foi de: " + piloto.getMediaVelocidade());
-		}
-
-		System.out.println(list.get(0));
 	}
+
 }

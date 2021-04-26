@@ -1,61 +1,77 @@
 package entity;
 
-public class Piloto {
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.LinkedList;
+import java.util.List;
 
-	private String nome;
-	private int numeroPiloto;
-	private int posicaoChegada;
-	private int tempoDaProva;
-	private double mediaVelocidade; // sem metodo
+public class Piloto implements Serializable {
 
-	public Piloto(String nome, int numeroPiloto, int tempoDaProva, double mediaVelocidade) {
-		this.nome = nome;
-		this.numeroPiloto = numeroPiloto;
-		this.tempoDaProva = tempoDaProva;
-		this.mediaVelocidade = mediaVelocidade;
+	private static final long serialVersionUID = 1L;
+
+	private String dataHora;
+	private String nomePiloto;
+	private int numeroDeVoltas;
+	private String tempoDeVolta;
+	private Double velocidadeMedia;
+	private List<Piloto> piloto = new LinkedList<Piloto>(); // test
+
+	Piloto() {
+	}
+
+	public Piloto(String dataHora, String nomePiloto, int numeroDeVoltas, String tempoDeVolta, Double velocidadeMedia) {
+
+		this.dataHora = dataHora;
+		this.nomePiloto = nomePiloto;
+		this.numeroDeVoltas = numeroDeVoltas;
+		this.tempoDeVolta = tempoDeVolta;
+		this.velocidadeMedia = velocidadeMedia;
 	}
 
 	@Override
 	public String toString() {
-		return "[ Campeão : " + nome.toUpperCase() + 
-				" Numero do piloto: " + numeroPiloto + 
-				",Tempo de prova: " + tempoDaProva + 
-				" Segundos , velocidade media foi de : " + mediaVelocidade;
+		return " Piloto = " + nomePiloto + ", Voltas = " + numeroDeVoltas + " , tempo Da Volta = " + tempoDeVolta
+				+ " , velocidadeMedia = " + velocidadeMedia + "  #Horario da prova  " + dataHora;
 	}
 
-	public Double getMediaVelocidade() {
-		return mediaVelocidade;
+	public String getDataHora() {
+		return dataHora;
 	}
 
-	public int getTempoDaProva() {
-		return tempoDaProva;
+	public void setDataHora(String dataHora) {
+		this.dataHora = dataHora;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getNomePiloto() {
+		return nomePiloto;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomePiloto(String nomePiloto) {
+		this.nomePiloto = nomePiloto;
 	}
 
-	public int getNumeroPiloto() {
-		return numeroPiloto;
+	public int getNumeroDeVoltas() {
+		return numeroDeVoltas;
 	}
 
-	public int getPosicaoChegada() {
-		return posicaoChegada;
+	public void setNumeroDeVoltas(int numeroDeVoltas) {
+		this.numeroDeVoltas = numeroDeVoltas;
 	}
 
-	public void setPosicaoChegada(int posicaoChegada) {
-		this.posicaoChegada = posicaoChegada;
+	public String getTempoDeVolta() {
+		return tempoDeVolta;
 	}
 
-	public int velocidadeMedia(int quantidadeVoltas, int velocidade) {
+	public void setTempoDeVolta(String tempoDeVolta) {
+		this.tempoDeVolta = tempoDeVolta;
+	}
 
-		int media = (quantidadeVoltas + velocidade) / quantidadeVoltas;
+	public Double getVelocidadeMedia() {
+		return velocidadeMedia;
+	}
 
-		return media;
+	public void setVelocidadeMedia(Double velocidadeMedia) {
+		this.velocidadeMedia = velocidadeMedia;
 	}
 
 }
