@@ -12,14 +12,14 @@ public class Piloto implements Serializable {
 	private String dataHora;
 	private String nomePiloto;
 	private int numeroDeVoltas;
-	private String tempoDeVolta;
+	private Double tempoDeVolta;
 	private Double velocidadeMedia;
 	private List<Piloto> piloto = new LinkedList<Piloto>(); // test
 
 	Piloto() {
 	}
 
-	public Piloto(String dataHora, String nomePiloto, int numeroDeVoltas, String tempoDeVolta, Double velocidadeMedia) {
+	public Piloto(String dataHora, String nomePiloto, int numeroDeVoltas, Double tempoDeVolta, Double velocidadeMedia) {
 
 		this.dataHora = dataHora;
 		this.nomePiloto = nomePiloto;
@@ -30,8 +30,12 @@ public class Piloto implements Serializable {
 
 	@Override
 	public String toString() {
-		return " Piloto = " + nomePiloto + ", Voltas = " + numeroDeVoltas + " , tempo Da Volta = " + tempoDeVolta
-				+ " , velocidadeMedia = " + velocidadeMedia + "  #Horario da prova  " + dataHora;
+		return 	" Piloto = " + nomePiloto + 
+				", Voltas = " + numeroDeVoltas + 
+				" , tempo Da Volta = " +  tempoDeVolta
+				+ " , velocidadeMedia = " + velocidadeMedia 
+				+ " Horario da prova  " + dataHora;
+		
 	}
 
 	public String getDataHora() {
@@ -58,11 +62,11 @@ public class Piloto implements Serializable {
 		this.numeroDeVoltas = numeroDeVoltas;
 	}
 
-	public String getTempoDeVolta() {
+	public Double getTempoDeVolta() {
 		return tempoDeVolta;
 	}
 
-	public void setTempoDeVolta(String tempoDeVolta) {
+	public void setTempoDeVolta(Double tempoDeVolta) {
 		this.tempoDeVolta = tempoDeVolta;
 	}
 
