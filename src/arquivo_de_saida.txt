@@ -1,0 +1,7 @@
+posição de chegada;codigo Piloto;nome Piloto;Qtde Voltas Completadas;Tempo Total de Prova
+1;38;F.MASSA;4;4:11:578
+2;2;K.RAIKKONEN;4;4:15:153
+3;33;R.BARRICHELLO;4;4:16:80
+4;23;M.WEBBER;4;4:17:722
+5;15;F.ALONSO;4;4:54:221
+6;11;S.VETTEL;3;5:87:276
